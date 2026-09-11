@@ -12,13 +12,11 @@ A Python-based automation tool for processing production reports and generating 
 - Generates a structured Excel report
 - Automatically sends the report via Gmail
 
-## Output
+## Version
 
-The generated Excel report contains:
-
-| Project No. | Part No. | Pickup Count | Throw Count | Reject Rate | Generated Time |
-|-------------|----------|---:|---:|---:|---|
-| xxx         | xxx      | 168 | 1 | 0.60% | 19:54 |
+There is 2 versions of the application:
+1. **main.py**: Generates the report, save it as an Excel file to local folder and sent the report via email.
+2. **mainWithoutEmail.py**: Generates the report, saves it as an Excel file to local folder.
 
 ## Requirements
 
@@ -37,27 +35,11 @@ The application can be modified and then packaged as a Windows executable using 
 
 ```bash
 pyinstaller --onefile main.py
+or
+pyinstaller --onefile mainWithoutEmail.py
 ```
 
-## Email Configuration
-
-Gmail credentials are stored using environment variables:
-
-```text
-GMAIL_ADDRESS
-GMAIL_APP_PASSWORD
-```
-
-On Windows, use the following commands to set the environment variables:
-
-```bash
-setx GMAIL_ADDRESS "your_email@gmail.com"
-setx GMAIL_APP_PASSWORD "your_app_password"
-```
-
-**Restart the terminal or application after setting the variables.**
-
-**Note:** Do not store email passwords directly in the source code.
+*Please check the version before building.*
 
 ## Automatic Scheduling on Windows
 
@@ -83,3 +65,23 @@ Windows Task Scheduler to be used to run the application automatically every day
 The application will then run automatically at the scheduled time and generate the daily report from **yesterday's** data.
 
 *Make sure the computer is not fully shut down and is connected to the internet at the scheduled time.*
+
+## Email Configuration
+
+Gmail credentials are stored using environment variables:
+
+```text
+GMAIL_ADDRESS
+GMAIL_APP_PASSWORD
+```
+
+On Windows, use the following commands to set the environment variables:
+
+```bash
+setx GMAIL_ADDRESS "your_email@gmail.com"
+setx GMAIL_APP_PASSWORD "your_app_password"
+```
+
+**Restart the terminal or application after setting the variables.**
+
+**Note:** Do not store email passwords directly in the source code.
