@@ -92,7 +92,11 @@ for project in projects:
 
 
 # Write the results to an Excel file
-output_file = f"daily_report_{date}.xlsx"
+output_folder = os.path.join(base_path, "Generated Reports")
+
+os.makedirs(output_folder, exist_ok=True)
+
+output_file = os.path.join(output_folder, f"daily_report_{date}.xlsx")
 
 wb = Workbook()
 ws = wb.active
@@ -151,7 +155,7 @@ msg.add_attachment(
     file_data,
     maintype="application",
     subtype="vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    filename=output_file
+    filename=os.path.basename(output_file)
 )
 
 # Send the email using Gmail's SMTP server

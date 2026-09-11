@@ -10,6 +10,7 @@ __pycache__/
 *.pyc
 
 # Generated reports
+Generated Reports/
 daily_report_*.xlsx
 
 # Secrets
