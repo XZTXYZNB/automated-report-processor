@@ -1,0 +1,16 @@
+# Production reports
+Report/
+
+# PyInstaller
+build/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+
+# Generated reports
+daily_report_*.xlsx
+
+# Secrets
+.env
